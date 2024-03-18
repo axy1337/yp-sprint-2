@@ -52,3 +52,19 @@ from source3.craft_market_orders;
 insert into dwh.d_product(product_name, product_description, product_type, product_price, load_dttm)
 select product_name, product_description, product_type, product_price, now()
 from source3.craft_market_orders;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
