@@ -23,6 +23,27 @@ CREATE TABLE IF NOT EXISTS dwh.customer_report_datamart (
     report_period VARCHAR NOT NULL, -- отчётный период (год и месяц)
     CONSTRAINT customer_report_datamart_pk PRIMARY KEY (id)
 );
+
+COMMENT ON COLUMN dwh.customer_report_datamart.id is 'идентификатор записи';
+COMMENT ON COLUMN dwh.customer_report_datamart.customer_id  IS 'идентификатор заказчика';
+COMMENT ON COLUMN dwh.customer_report_datamart.customer_name  IS 'Ф. И. О. заказчика';
+COMMENT ON COLUMN dwh.customer_report_datamart.customer_address  IS 'адрес заказчика';
+COMMENT ON COLUMN dwh.customer_report_datamart.customer_birthday  IS 'дата рождения заказчика';
+COMMENT ON COLUMN dwh.customer_report_datamart.customer_email  IS 'электронная почта заказчика';
+COMMENT ON COLUMN dwh.customer_report_datamart.customer_money  IS 'сумма, которую потратил заказчик';
+COMMENT ON COLUMN dwh.customer_report_datamart.platform_money  IS 'сумма, которую заработала платформа от покупок заказчика за месяц (10% от суммы, которую потратил заказчик)';
+COMMENT ON COLUMN dwh.customer_report_datamart.count_order  IS 'количество заказов у заказчика за месяц';
+COMMENT ON COLUMN dwh.customer_report_datamart.count_order_done is 'количество завершённых заказов за месяц';
+COMMENT ON COLUMN dwh.customer_report_datamart.count_order_not_done is 'количество незавершённых заказов за месяц';
+COMMENT ON COLUMN dwh.customer_report_datamart.count_order_created is 'количество созданных заказов за месяц';
+COMMENT ON COLUMN dwh.customer_report_datamart.count_order_in_progress is 'количество заказов в процессе изготовки за месяц';
+COMMENT ON COLUMN dwh.customer_report_datamart.count_order_delivery is 'количество заказов в доставке за месяц';
+COMMENT ON COLUMN dwh.customer_report_datamart.median_time_order_completed is 'медианное время в днях от момента создания заказа до его завершения за месяц'; 
+COMMENT ON COLUMN dwh.customer_report_datamart.popular_craftsman_id is 'идентификатор самого популярного мастера ручной работы у заказчика';
+COMMENT ON COLUMN dwh.customer_report_datamart.avg_price_order is 'средняя стоимость одного заказа у заказчика за месяц';
+COMMENT ON COLUMN dwh.customer_report_datamart.top_product_category is 'самая популярная категория товаров у этого заказчика за месяц'; 
+COMMENT ON COLUMN dwh.customer_report_datamart.report_period is 'отчётный период (год и месяц)';
+
 DROP TABLE IF EXISTS dwh.load_dates_customer_report_datamart;
 CREATE TABLE IF NOT EXISTS dwh.load_dates_customer_report_datamart (
 	id bigint generated always as identity not null,
